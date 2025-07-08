@@ -3,7 +3,7 @@ import pandas as pd
 import requests
 import mysql.connector
 from datetime import date
-from saturn import Saturn
+from Saturn import Saturn
 
 class Ogoto:
     def __init__(self):
@@ -58,11 +58,36 @@ class Ogoto:
                 password=db_pass,
                 database=db_name
             )
-            print("✅ Connected to the database.")
-            # Future logic to insert `changes` will go here
+            cursor = connection.cursor()
+
+            insert_query = (
+                "INSERT IGNORE INTO kev_catalog ("
+                "cve_id, vendor_project, product, vulnerability_name, "
+                "date_added, short_description, notes"
+                ") VALUES (%s, %s, %s, %s, %s, %s, %s)"
+            )
+
+            inserted = 0
+            for _, row in changes.iterrows():
+                cursor.execute(insert_query, (
+                    row.get("cveID", ""),
+                    row.get("vendorProject", ""),
+                    row.get("product", ""),
+                    row.get("vulnerabilityName", ""),
+                    pd.to_datetime(row.get("dateAdded", "")).date() if pd.notnull(row.get("dateAdded")) else None,
+                    row.get("shortDescription", ""),
+                    row.get("notes", "")
+                ))
+                inserted += 1  # Count every attempted insert
+
+            connection.commit()
+            print(f"✅ Inserted {inserted} new rows.")
+
+            cursor.close()
             connection.close()
+
         except mysql.connector.Error as err:
-            print(f"❌ Database connection error: {err}")
+            print(f"❌ Database error: {err}")
 
     def run(self):
         self.download_csv()
