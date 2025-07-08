@@ -1,0 +1,26 @@
+﻿version: '3.9'
+services:
+  kev-loader:
+    build: ./kev-loader
+    volumes:
+      - ./kev-loader:/app
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=db
+      - DB_USER=root
+      - DB_PASS=example
+
+  db:
+    image: mysql:8
+    container_name: ogoto-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: ogoto
+    volumes:
+      - ./mysql-init:/docker-entrypoint-initdb.d:ro
+      - /opt/apps/ogotodb:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
