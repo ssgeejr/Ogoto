@@ -7,17 +7,19 @@ services:
     depends_on:
       - db
     environment:
-      - DB_HOST=db
-      - DB_USER=root
-      - DB_PASS=example
+      - DB_HOST=ogotodb
+      - DB_USER=ogoto
+      - DB_PASS=hashmap
 
   db:
     image: mysql:8
     container_name: ogoto-db
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: example
-      MYSQL_DATABASE: ogoto
+        MYSQL_DATABASE: 'ogoto'
+        MYSQL_USER: 'ogoto'
+        MYSQL_PASSWORD: 'hashmap'
+        MYSQL_ROOT_PASSWORD: 'threeblindmice'
     volumes:
       - ./mysql-init:/docker-entrypoint-initdb.d:ro
       - /opt/apps/ogotodb:/var/lib/mysql

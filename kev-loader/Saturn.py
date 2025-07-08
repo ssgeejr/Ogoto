@@ -23,6 +23,9 @@ class Saturn:
         return self.config.get(key)
 
     # MYSQL
+    def get_dbhost(self):
+        return self.config.get('DBHOST')
+
     def get_db(self):
         return self.config.get('DB')
 

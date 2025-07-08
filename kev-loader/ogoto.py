@@ -46,7 +46,7 @@ class Ogoto:
     def update_daily_changes(self, changes):
         print("Preparing to insert new changes into the database...")
         saturn = Saturn()
-        db_host = saturn.get_value("DBHOST") or "db"
+        db_host = saturn.get_dbhost()
         db_user = saturn.get_db_uname()
         db_pass = saturn.get_db_pword()
         db_name = saturn.get_db()
