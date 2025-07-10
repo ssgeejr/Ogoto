@@ -12,6 +12,15 @@ class Ogoto:
         self.today_file = os.path.join(self.base_dir, f"cisa_kev_{self.today}.csv")
         self.previous_file = os.path.join(self.base_dir, "cisa_kev_latest.csv")
         self.csv_url = "https://www.cisa.gov/sites/default/files/csv/known_exploited_vulnerabilities.csv"
+        self.filter_file = os.path.join(self.base_dir, "ogoto.filter")
+        self.allowed_vendors = self.load_filter()
+
+    def load_filter(self):
+        if not os.path.exists(self.filter_file):
+            print("⚠️ Filter file not found, allowing all vendors.")
+            return set()
+        with open(self.filter_file, 'r') as f:
+            return set(line.strip() for line in f if line.strip())
 
     def download_csv(self):
         headers = {"User-Agent": "Mozilla/5.0"}
@@ -44,7 +53,7 @@ class Ogoto:
             print(f"Removed: {self.previous_file}")
 
     def update_daily_changes(self, changes):
-        print("Preparing to insert new changes into the database...")
+        print("Preparing to insert filtered changes into the database...")
         saturn = Saturn()
         db_host = saturn.get_dbhost()
         db_user = saturn.get_db_uname()
@@ -69,20 +78,22 @@ class Ogoto:
 
             inserted = 0
             for _, row in changes.iterrows():
+                vendor = row.get("vendorProject", "").strip()
+                if self.allowed_vendors and vendor not in self.allowed_vendors:
+                    continue
                 cursor.execute(insert_query, (
                     row.get("cveID", ""),
-                    row.get("vendorProject", ""),
+                    vendor,
                     row.get("product", ""),
                     row.get("vulnerabilityName", ""),
                     pd.to_datetime(row.get("dateAdded", "")).date() if pd.notnull(row.get("dateAdded")) else None,
                     row.get("shortDescription", ""),
                     row.get("notes", "")
                 ))
-                inserted += 1  # Count every attempted insert
+                inserted += 1
 
             connection.commit()
-            print(f"✅ Inserted {inserted} new rows.")
-
+            print(f"✅ Inserted {inserted} filtered rows.")
             cursor.close()
             connection.close()
 
