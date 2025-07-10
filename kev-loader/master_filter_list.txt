@@ -1,0 +1,229 @@
+7-Zip
+Accellion
+Acclaim Systems
+Acronis
+Adobe
+Advantive
+Alcatel
+Amcrest
+AMI
+Android
+Apache
+Apple
+Arcadyan
+Arcserve
+Arm
+Array Networks 
+Artifex
+ASUS
+Atlassian
+Audinate
+Aviatrix
+Barracuda Networks
+BeyondTrust
+BQE
+Broadcom
+Cacti
+ChakraCore
+Check Point
+Checkbox
+Cisco
+Citrix
+Cleo
+Code Aurora
+Commvault
+ConnectWise
+Craft CMS
+Crestron
+CrushFTP
+CWP
+CyberPersons
+Dahua
+Dasan
+Dell
+Delta Electronics
+D-Link
+D-Link and TRENDnet
+Docker
+dotCMS
+DotNetNuke (DNN)
+DrayTek
+Drupal
+Edimax
+Elastic
+Embedthis
+Erlang
+Exim
+EyesOfNetwork
+F5
+FatPipe
+ForgeRock
+Fortinet
+Fortra
+FreeType
+Fuel CMS
+FXC
+GeoVision
+GIGABYTE
+GitLab
+Gladinet
+GNU
+Google
+Grafana Labs
+Grandstream
+Hewlett Packard (HP)
+Hikvision
+Hitachi Vantara
+IBM
+IETF
+Ignite Realtime
+ImageMagick
+InduSoft
+Intel
+Ivanti
+Jenkins
+JetBrains
+Joomla!
+JQuery
+Juniper
+Justice AV Solutions
+Kaseya
+Kentico
+Kingsoft
+Langflow
+Laravel
+LG
+Liferay
+Linux
+Looking Glass
+McAfee
+MDaemon
+MediaTek
+Meta Platforms
+Metabase
+Micro Focus
+Microsoft
+MikroTik
+MinIO
+Mitel
+MongoDB
+Mozilla
+Nagios
+NAKIVO
+NETGEAR
+Netis
+Netwrix
+NextGen Healthcare
+Nice
+North Grid
+Nostromo
+Novi Survey
+Npm package
+NUUO
+October CMS
+OpenBSD
+OpenSSL
+Oracle
+OSGeo
+ownCloud
+Paessler
+Palo Alto Networks
+PaperCut
+PEAR
+Perl
+PHP
+PHP Group
+phpMyAdmin
+PHPUnit
+Pi-hole
+PlaySMS
+Plex
+Primetek
+Progress
+ProjectSend
+PTZOptics
+Pulse Secure
+Qlik
+QNAP
+QNAP Systems
+Qualcomm
+Qualitia
+Quest
+Rails
+RARLAB
+rConfig
+Realtek
+Red Hat
+Redis
+Rejetto
+Reolink
+reviewdog
+Roundcube
+Ruckus Wireless
+SaltStack
+Samba
+Samsung
+SAP
+Schneider Electric
+ScienceLogic
+ServiceNow
+Siemens
+SIMalliance
+SimpleHelp 
+Sitecore
+SolarView
+SolarWinds
+Sonatype
+SonicWall
+Sophos
+Spreadsheet::ParseExcel
+Srimax
+Sudo
+SugarCRM
+Sumavision
+Sunhillo
+Symantec
+Synacor
+SysAid
+TeamViewer
+Teclib
+TeleMessage
+Telerik
+Tenda
+TerraMaster
+ThinkPHP
+TIBCO
+tj-actions
+TP-Link
+Treck TCP/IP stack
+Trend Micro
+Trihedral
+Trimble
+TVT
+Twilio
+Ubiquiti
+Unitronics
+Unraid
+vBulletin
+Veeam
+Veritas
+Versa
+VMware
+VMware Tanzu
+WatchGuard
+Wazuh
+WebKitGTK
+Webmin
+WebRTC
+WordPress
+WSO2
+XStream
+Yealink
+Yiiframework
+Zabbix
+ZK Framework
+ZKTeco
+Zoho
+Zyxel
+
+
